@@ -23,16 +23,26 @@ public class RetrofitHelper {
         return retrofit;
     }
 
-    public static Observable<GeocodeQuery> getAddress( String query ) {
+    public static Observable<GeocodeQuery> getCoordinates( String query ) {
         Retrofit retrofit = create();
         RequestService remoteService = retrofit.create( RequestService.class );
 
-        return remoteService.responseService( query );
+        return remoteService.geocode( query );
+    }
+
+    public static Observable<GeocodeQuery> getAddress( String latLng ) {
+        Retrofit retrofit = create();
+        RequestService remoteService = retrofit.create( RequestService.class );
+
+        return remoteService.reveseGeocode( latLng );
     }
 
     public interface RequestService{
         @GET( "json?key=AIzaSyBUAQ92de3gr5JI4jW46OFL_li-EFhHMD8" )
-        Observable<GeocodeQuery> responseService(@Query("address") String query);
+        Observable<GeocodeQuery> geocode(@Query("address") String query);
+
+        @GET( "json?key=AIzaSyBUAQ92de3gr5JI4jW46OFL_li-EFhHMD8" )
+        Observable<GeocodeQuery> reveseGeocode(@Query("latlng") String query);
 
     }
 }
