@@ -21,4 +21,11 @@
         android:id="@+id/btnClass"
         android:onClick="buttonPressed"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to Map"
+        android:id="@+id/btnMap"
+        android:onClick="buttonPressed"/>
+
 </LinearLayout>

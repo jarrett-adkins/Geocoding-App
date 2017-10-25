@@ -25,6 +25,11 @@ public class MainActivity extends AppCompatActivity{
                 Intent intent2 = new Intent( this, ClassActivity.class );
                 startActivity( intent2 );
                 break;
+            case R.id.btnMap:
+                Intent intent3 = new Intent( this, MapsActivity.class );
+                startActivity( intent3 );
+                break;
+
         }
     }
 }
